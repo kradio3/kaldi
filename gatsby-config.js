@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Kaldi',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -28,6 +28,24 @@ module.exports = {
         path: `${__dirname}/src/img`,
         name: 'images',
       },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: "https://api.netlify.com/api/v1/sites/nostalgic-ptolemy-c41626.netlify.com/submissions/?access_token=9d741b12724875244e4230e9ec0ee0c43b774404aaac6d0cdd9483b4d2daef1d",
+        rootKey: "contacts",
+        schemas: {
+          contacts: `
+            data: data
+          `,
+          data: `
+            name: String
+            email: String
+            message: String
+          `
+        },
+      }
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
