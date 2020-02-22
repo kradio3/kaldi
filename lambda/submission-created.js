@@ -7,7 +7,7 @@
 const fetch = require('node-fetch')
 //var { EMAIL_TOKEN } = process.env
 
-const url ="https://api.netlify.com/build_hooks/5e510f7e3832e007a08c6563_1";
+const url ="https://api.netlify.com/build_hooks/5e510f7e3832e007a08c6563";
 
 exports.handler = async (event, context) => {
   try{
